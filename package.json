@@ -1,0 +1,30 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "mini project to learn react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShwethaSShetty/React-project.git"
+  },
+  "keywords": [],
+  "author": "shwetha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShwethaSShetty/React-project/issues"
+  },
+  "homepage": "https://github.com/ShwethaSShetty/React-project#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}
