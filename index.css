@@ -16,10 +16,10 @@
     font-size: 24px;
     display: flex;
     list-style: none;
-
 }
 
-.nav-item > ul > li {
+.nav-item > ul > a,
+.nav-item > ul > li{
    padding:10px ;
    margin: 10px;
 }
@@ -31,6 +31,7 @@
 .restaurant-card{
     padding: 5px;
     width: 200px;
+    margin: 5px;
 }
 
 .restaurant-card:hover{

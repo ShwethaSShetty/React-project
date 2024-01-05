@@ -2,10 +2,10 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listPfRestaurants, setListORestaurant] = useState([]);
-
   const [filteredRestaurants, setFilteredRestaurants] = useState();
   const [searchText, setSearchText] = useState();
 
@@ -15,7 +15,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.959641&lng=77.717308&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.959641&lng=77.717308&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
@@ -38,11 +38,8 @@ const Body = () => {
         <div className="search">
           <input type="text" className="search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
           <button onClick={()=>{
-            console.log()
                const filteredRestaurant = listPfRestaurants.filter(
                 (res) => {
-                  
-                  console.log(res.info.name+" "+ searchText)
                   return res.info.name.toLowerCase().includes(searchText.toLowerCase())
                 }
               );
@@ -65,7 +62,7 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => {
           return (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            <Link to={"restaurants/"+ restaurant.info.id} key={restaurant.info.id} ><RestaurantCard resData={restaurant} /></Link>
           );
         })}
       </div>
