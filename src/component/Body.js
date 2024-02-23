@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 const Body = () => {
-  const [listPfRestaurants, setListORestaurant] = useState([]);
+  const [listPfRestaurants, setListORestaurant] = useState([null]);
   const [filteredRestaurants, setFilteredRestaurants] = useState();
   const [searchText, setSearchText] = useState();
 
@@ -25,10 +25,6 @@ const Body = () => {
     );
     setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
-
-  if (listPfRestaurants?.length === 0) {
-    return <Shimmer />;
-  }
 
   return listPfRestaurants?.length === 0 ? (
     <Shimmer />
@@ -60,7 +56,7 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {filteredRestaurants.map((restaurant) => {
+        {filteredRestaurants?.map((restaurant) => {
           return (
             <Link to={"restaurants/"+ restaurant.info.id} key={restaurant.info.id} ><RestaurantCard resData={restaurant} /></Link>
           );
